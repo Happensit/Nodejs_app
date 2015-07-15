@@ -1,0 +1,14 @@
+<div id="flashes">
+    <!--{% if messages %}-->
+    <!--{% for flash in flashes %}-->
+    <!--<div class="alert alert-{{flash.type}}">{{flash.message}}</div>-->
+    <!--{% endfor %}-->
+    <!--{% endif %}-->
+
+    <% if (typeof messages != 'undefined' && messages.length > 0) { %>
+        <% messages.forEach(function(type, msg){
+            console.log(type);
+            console.log(msg)
+        }); %>
+    <% } %>
+</div>

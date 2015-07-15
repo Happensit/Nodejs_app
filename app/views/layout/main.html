@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="svapp">
+<head>
+    <meta charset="utf-8">
+    <meta content="chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="Drupal 7, drupal fork, Drupal 7 developer, drupal modules, programmer, программист Drupal" />
+    <title>{% block title %}SelimVas{% endblock %}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
+    <link rel='stylesheet' href='/css/style.css' />
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrapper">
+{% include 'navbar.html' %}
+    <h1 class="title">{% block title %}SelimVas{% endblock %}</h1>
+    {% if flashes %}{% for flash in flashes %}
+    <div class="alert alert-{{flash.type}}" role="alert">{{flash.message}}</div>{% endfor %}
+    {% endif %}
+    {% block content %}{% endblock %}
+    <footer class="navbar-fixed-bottom row-fluid">
+        <p class="text-center">© Copyright 2014 - {{ copyrightYear }} {{ copyrightName }}</p>
+    </footer>
+</div>
+<script src="/js/angular.min.js"></script>
+<script src="/js/ui-bootstrap-custom-0.13.0.min.js"></script>
+<script src="/js/ui-bootstrap-custom-tpls-0.13.0.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

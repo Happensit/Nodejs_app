@@ -1,0 +1,26 @@
+{% extends "../layout/main.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <form name="RegisterForm" role="form" action="/user/register" method="post" novalidate="novalidate">
+                    <input type='hidden' name='_csrf' value={{ csrftoken }} />
+                    <div class="form-group">
+                        <label for="Phone">Номер телефона</label>
+                        <input type="text" class="form-control" id="Phone" name="phone" placeholder="+79123456789" ng-model="user.phone" ng-pattern="/^\+\d{1}?\d{10}$/" ng-required="true" popover-popup-delay="10" popover="Ваш контактный номер телефона в формате +79123456789. На него мы вышлем Вам пароль для входа на сайт. " popover-trigger="focus" tooltip-animation-class="fade">
+                        <span class="help-block has-error">
+                            <small>Ваш номер ни в коем случае не будет использоваться никак иначе кроме целей отправки и восстановления пароля.</small>
+                        </span>
+                    </div>
+                    <input style="position: absolute; left: -9999em"  ng-show="!RegisterForm.phone.$invalid" type="checkbox" checked autofocus>
+                    <button ng-show="!RegisterForm.phone.$invalid" type="submit" class="btn btn-primary" ng-disabled="RegisterForm.$invalid">Зарегистрироваться с номером [[ user.phone ]]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script async type="text/javascript">
+        var title = document.getElementsByClassName('title');
+        title[0].className += ' register_form';
+    </script>
+{% endblock %}

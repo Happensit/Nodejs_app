@@ -1,0 +1,11 @@
+{% extends "layout/main.html" %}
+
+{% block content %}
+
+    <h3 style="text-align: center">Вы предприняли слишком много попыток {{ try_name }}. <br>
+    Пожалуйста, подождите 2 минуты и попробуйте снова. </h3>
+<script async type="text/javascript">
+    var title = document.getElementsByClassName('title');
+    title[0].className += ' register_form';
+</script>
+{% endblock %}
